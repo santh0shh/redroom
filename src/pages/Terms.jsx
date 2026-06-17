@@ -15,7 +15,7 @@ export default function Terms() {
           <p>2. You must not talk about this site outside the stream.</p>
           <p>3. Once you enter the room, the room never forgets you.</p>
           <p>4. Do not leave the live event before it concludes. <br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;Leaving early isa direct violation of our rituals and traditions.
+            &nbsp;&nbsp;&nbsp;&nbsp;Leaving early is a direct violation of our rituals and traditions.
           </p>
           <p>5. Watch, Obey, Become part of the room.</p>
         </div>

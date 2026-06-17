@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import {useState} from 'react';
-import titleIcon from "../assets/title1.png";
+import titleIcon from "../assets/title.png";
 export default function Intro() {
     const navigate = useNavigate();
     const [isActive, setIsActive] = useState(false);
-    setTimeout(()=>setIsActive(true),3000)
+    setTimeout(()=>setIsActive(true),4000)
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">

@@ -1,10 +1,26 @@
 import { useEffect, useRef } from 'react'
 import { FAKE_PAYMENT_USERS, TIP_AMOUNTS } from '../constants/payments'
 
-const FAKE_USERS = [
+export const FAKE_USERS = [
   'void_walker', 'crimson_eye', 'anon_7734', 'night_owl', 'red_veil',
   'ghost_signal', 'cipher_x', 'dark_pulse', 'null_user', 'specter_09',
   'echo_room', 'shade_protocol', 'locked_in', 'watcher_42', 'deep_red',
+  '0x_nemesis', 'rootshade', 'ciphercrow', 'ghostkernel', 'blackrelay',
+  'nulloperator', 'deadswitch', 'voidmarket', 'specterroot', 'darkpacket',
+  'redsector', 'silentexploit', 'phantomproxy', 'cryptshade', 'nightdaemon',
+  'deepnode', 'echozero', 'shadowkernel', 'grimrelay', 'blackcipher',
+  'dead_drop', 'tor_revenant', 'hidden_vendor', 'oblivion_net', 'maskedroot',
+  'zero_dayz', 'raven_proxy', 'black_harbor', 'cipher_drift', 'darkmatter_x',
+  'ghostledger', 'silentmarket', 'midnight_node', 'nullvector', 'deep_archive',
+  'shadewalker', 'spectral_wire', 'crimsonnode', 'forgotten_root', 'darkcarrier',
+  'ironphantom', 'veilrunner', 'ghostmerchant', 'shadowbroker', 'cryptnomad',
+  'blackout404', 'zerotrace_x', 'echo_relic', 'nightrelay', 'voidcartel',
+  'darkforge', 'phantomgrid', 'ciphervault', 'ghostroute', 'silentvoid',
+  'blacksignal', 'nullshadow', 'cryptoracle', 'redcipher', 'deepwatch',
+  'stormproxy', 'hiddenecho', 'voidkeeper', 'nightcrawler_x', 'grimvector',
+  'echohunter', 'shadowcache', 'frostnode', 'darkrelic', 'spectralbyte',
+  'ironcipher', 'blackphantom', 'veilcipher', 'obscure_root', 'deaddns',
+  'ghostarchive', 'crypticvoid', 'ravenroot', 'shadowvendor'
 ]
 
 const FAKE_MESSAGES = [
@@ -25,7 +41,7 @@ const FAKE_MESSAGES = [
   'premium access was worth it',
 ]
 
-const CHAT_COUNT = Math.min(FAKE_USERS.length, FAKE_MESSAGES.length)
+const CHAT_COUNT = Math.max(FAKE_USERS.length, FAKE_MESSAGES.length)
 
 export function useFakeChat(setMessages) {
   const chatIndex = useRef(0)
@@ -46,7 +62,7 @@ export function useFakeChat(setMessages) {
     const getNextChat = () => {
       const i = chatIndex.current
       const user = FAKE_USERS[i]
-      const text = FAKE_MESSAGES[i]
+      const text = FAKE_MESSAGES[i%FAKE_MESSAGES.length]
       chatIndex.current = (i + 1) % CHAT_COUNT
       return { user, text }
     }

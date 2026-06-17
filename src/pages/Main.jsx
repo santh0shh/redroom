@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import PremiumPanel from '../components/PremiumPanel'
 import StreamPlayer from '../components/StreamPlayer'
 import ChatPanel from '../components/ChatPanel'
@@ -37,6 +38,16 @@ function createInitialMessages() {
 function Main() {
   const [messages, setMessages] = useState(createInitialMessages)
   const [isFullscreen, setIsFullscreen] = useState(false)
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate("/alert");
+    }, 5*1000);
+
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   useFakeChat(setMessages)
 
