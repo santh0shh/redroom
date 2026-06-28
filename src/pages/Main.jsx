@@ -44,7 +44,7 @@ function Main() {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate("/alert");
-    }, 5*1000);
+    }, 2*60*1000);
 
     return () => clearTimeout(timer);
   }, [navigate]);

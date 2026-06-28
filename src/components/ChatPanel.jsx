@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { TIP_AMOUNTS } from '../constants/payments'
 import { formatTimeAgo, getNextTimeBoundary } from '../utils/timeAgo'
+import brics from '../assets/brics.png'
 
 function ChatMessage({ msg, now }) {
   if (msg.isSystem) {
@@ -16,14 +17,17 @@ function ChatMessage({ msg, now }) {
         <span className="ml-1.5 text-[10px] text-red-800/60">
           {formatTimeAgo(msg.createdAt, now)}
         </span>
-        <p className="mt-0.5 text-amber-200/75">{msg.text}</p>
+        <div className='flex items-center'>
+          <img className='h-[12px] w-[14px]' src={brics} alt="brics" />
+          <p className="mt-0.5 text-amber-200/75">&nbsp; x{msg.text}</p>
+        </div>
       </div>
     )
   }
 
   return (
     <>
-      <span className={`font-semibold ${msg.isOwn ? 'text-red-300' : 'text-red-500/80'}`}>
+      <span className={`font-semibold ${msg.isOwn ? 'text-red-500' : 'text-red-500/80'}`}>
         {msg.user}
       </span>
       <span className="ml-1.5 text-[10px] text-red-800/60">
@@ -62,9 +66,9 @@ export default function ChatPanel({ overlay = false, messages, setMessages }) {
 
   useEffect(() => {
     const fakeMessages = [
-      { delay: 3000, user: 'alex', text: 'Hello everyone' },
+      { delay: 3000, user: 'hruday', text: 'Remove his nail' },
       { delay: 15000, user: 'mike', text: 'Nice content' },
-      { delay: 60000, user: 'sarah', text: 'Can you explain that again?' },
+      { delay: 60000, user: 'sarah', text: 'Jejus' },
     ]
   
     const timers = fakeMessages.map((msg) =>
@@ -108,7 +112,7 @@ export default function ChatPanel({ overlay = false, messages, setMessages }) {
       {
         id: crypto.randomUUID(),
         user: 'you',
-        text: `tipped $${amount}`,
+        text: `${amount}`,
         amount,
         isPayment: true,
         isOwn: true,

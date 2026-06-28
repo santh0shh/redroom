@@ -94,7 +94,7 @@ export function useFakeChat(setMessages) {
             {
               id: nextId('pay'),
               user,
-              text: `tipped $${amount}`,
+              text: `${amount}`,
               amount,
               isPayment: true,
               createdAt: Date.now(),
